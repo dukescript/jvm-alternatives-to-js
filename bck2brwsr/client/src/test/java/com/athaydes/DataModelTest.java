@@ -12,11 +12,12 @@ import org.junit.Test;
 public class DataModelTest {
     @Test public void testUIModelWithoutUI() {
         Data model = new Data();
-        model.setMessage("Hello World!");
-
-        java.util.List<String> arr = model.getWords();
-        assertEquals("Six words always", arr.size(), 6);
-        assertEquals("Hello is the first word", "Hello", arr.get(0));
-        assertEquals("World is the second word", "World!", arr.get(1));
+        assertEquals(0, model.getValue());
+        DataModel.increment(model);
+        assertEquals(1, model.getValue());
+        DataModel.increment(model);
+        assertEquals(2, model.getValue());
+        DataModel.decrement(model);
+        assertEquals(1, model.getValue());
     }
 }

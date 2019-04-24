@@ -18,33 +18,13 @@ import org.junit.runner.RunWith;
  */
 @RunWith(BrowserRunner.class)
 @HTMLContent(
-    "<h3>Test in JavaFX WebView and pluginless Browser</h3>\n" +
-    "<span data-bind='text: message'></span>\n" +
-    "<ul data-bind='foreach: words'>\n" +
-    "  <li>\n" +
-    "    <span data-bind='text: $data'></span>\n" +
-    "  </li>\n" +
-    "</ul>\n" +
+    "Default value: <span data-bind='text: value'></span>\n" +
     "\n"
 )
 public class IntegrationTest {
     @Test public void testUIModelUI() {
         Data model = new Data();
         model.applyBindings();
-        model.setMessage("Hello World by JavaFX WebView");
-
-        java.util.List<String> arr = model.getWords();
-        assertEquals("Six words always", arr.size(), 6);
-        assertEquals("Hello is the first word", "Hello", arr.get(0));
-        assertEquals("World is the second word", "World", arr.get(1));
-        assertEquals("JavaFX", arr.get(3));
-
-        model.setMessage("Hello World by Bck2Brwsr Virtual Machine");
-
-        arr = model.getWords();
-        assertEquals("Six words always", arr.size(), 6);
-        assertEquals("Hello is the first word", "Hello", arr.get(0));
-        assertEquals("World is the second word", "World", arr.get(1));
-        assertEquals("Bck2Brwsr", arr.get(3));
+        assertEquals(0, model.getValue());
     }
 }

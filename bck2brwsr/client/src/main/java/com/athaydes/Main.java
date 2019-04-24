@@ -1,7 +1,6 @@
 package com.athaydes;
 
 import com.athaydes.js.PlatformServices;
-import java.util.prefs.Preferences;
 import net.java.html.boot.BrowserBuilder;
 
 public final class Main {
@@ -30,14 +29,5 @@ public final class Main {
     }
 
     private static final class DesktopServices extends PlatformServices {
-        @Override
-        public String getPreferences(String key) {
-            return Preferences.userNodeForPackage(Main.class).get(key, null);
-        }
-
-        @Override
-        public void setPreferences(String key, String value) {
-            Preferences.userNodeForPackage(Main.class).put(key, value);
-        }
     }
 }

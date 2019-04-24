@@ -6,21 +6,15 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <h1>Words Demo</h1>
-        <input data-bind="textInput:  message">
-        <br>
-        <button data-bind="enable: !rotating(), click: $root.turnAnimationOn">Start</button>
-        <button data-bind="enable: rotating, click: $root.turnAnimationOff">Stop</button>
-        <button data-bind="enable: !rotating(), click: $root.rotate5s">Rotate Few Seconds</button>
-        <button data-bind="click: $root.showScreenSize">Screen Size!</button>
-
-        <div id="scene">
-            <span id="words" data-bind="foreach: words">
-                <span data-bind="text: $data, css: { 'rotate' : $root.rotating } "></span>
-            </span>
+        <h2>DukeScript CounterApp</h2>
+        <div>
+            The current count is <span data-bind="text:  value"/>
         </div>
-        <!-- Remove this line to remove the button bar in the footer --> 
-        <script async=true src="http://dukescript.com/presenters/welcome.js"></script>
+
+        <div>
+        <button data-bind="click: $root.increment">Increment</button>
+        <button data-bind="click: $root.decrement">Decrement</button>
+        </div>
 <!-- ${browser.bootstrap} -->
     </body>
 </html>
